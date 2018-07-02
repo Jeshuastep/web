@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JQuery</title>
+			<script src="jquery-3.3.1.min.js"></script>
+		
+			 <style>
+			  #draggable 
+				 { 
+				 	width: 150px; 
+				 	height: 150px; 
+				 	padding: 0.5em; 
+				 }
+				 #contenedor
+				 {
+				 	background-color: honeydew;
+				 	width: 400px;
+				 	height: 300px;
+				 }
+			 </style>
+
+		 <script src="jqueryui/jquery-ui.js"></script>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<div id="draggable" class="ui-widget-content">
+  			<p>Arrastrame por la pantalla</p>
+		</div>
+		<div id="contenedor">
+			<span>AYUDAAAAAAAAAAA</span>
+		</div>
+
+		 <script>
+		  $( function() {
+		    $( "#draggable" ).draggable({ axis: "y" });
+		    $( "span" ).draggable({containment: "#contenedor"});
+		  } );
+		 </script>
+
+	</body>
+</html>

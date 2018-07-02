@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+		<title>Variables</title>
+	</head>
+	<body>
+		<div id="login1">
+			<input type="text" id="entradaUsuario" placeholder="Usuario">
+			<p id="texto">Inicia Sesión</p>
+			<button id="mostrarMensaje">Login</button>
+		</div>
+	<p id="vacio"></p>
+
+	<script type="text/javascript">
+
+		document.getElementById("mostrarMensaje").onclick = function()
+		{
+			var entradaTexto = "";
+			entradaTexto = document.getElementById("entradaUsuario").value;
+			document.getElementById("vacio").innerHTML = "Bienvenido "+entradaTexto;
+			document.getElementById("login1").style.display = "none";
+			
+		}
+	</script>
+	</body>
+</html>

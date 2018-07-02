@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>While</title>
+	</head>
+	<body>
+	<h1>Cuantos dedos tienes?</h1>
+	<input type="text" id="numeroDedos">
+	<button id="adivinaBoton">Advina</button>
+
+	<script type="text/javascript">
+	document.getElementById("adivinaBoton").onclick = function()
+	{
+		var miNumero = document.getElementById("numeroDedos").value;
+		var aciertoMaquina = false;
+		var numeroIntentos = 1;
+
+		if (miNumero<0 || miNumero>5) 
+			{
+				alert("Por favor ingrese valores correctos (0 al 5)");
+			} 
+
+		else 
+			{
+				while (aciertoMaquina == false)
+				{
+					var numeroMaquina = Math.floor(Math.random() * 6);
+
+					if (numeroMaquina == miNumero) 
+						{
+							aciertoMaquina = true;
+							alert("Acerté! "+numeroMaquina+" dedos. Me ha costado "+numeroIntentos+" intentos.")
+						} 
+						else 
+						{
+							numeroIntentos++;
+						}
+				}
+			}
+			
+
+	}
+		
+	</script>
+	</body>
+	
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+	<head>	
+	<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		var miArray = ["azul","rojo","amarillo"];
+		miArray.push("negro");
+		//splice elimina un elemenento (posicion, elementos a eliminar)
+		//miArray.splice(2,1);
+
+		// no borrar nada, al contrario agregar violeta en dicha posicion
+		miArray.splice(2,0,"violeta");
+
+		alert (miArray[2]);
+		alert (miArray[3]);
+		console.log(miArray);
+	</script>
+	</body>
+</html>

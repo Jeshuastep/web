@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <script src="jquery-3.3.1.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <style type="text/css">
+    	body
+    	{
+    		position: relative;
+    		margin-top: 100px 
+    		
+    	}
+
+    	#tablaReportes
+    	{
+    		display: none;
+    	}
+
+    	.encabezado
+    	{
+    		margin-left: 50px;
+    	}
+    	#fecha
+    	{
+    		display: none;
+    		margin-bottom: 100px;
+    	}
+    	#botonPdf
+    	{
+    		display: none;
+    	}
+    	.container2
+    	{
+    		border-radius: 20px;
+    		padding-bottom: 55px;
+    		padding-top: 30px;
+    		background-color: lightgrey;
+    		box-shadow: 4px 9px;
+    	}
+    	
+   	
+
+    </style>
+    <title>Reportes 2018</title>
+
+    
+  </head>
+  <body data-spy="scroll" data-target="#navbar" data-offset="200">
+	<div id="body">
+		<form class="container" id="fecha">
+			<div class="form-row"  >
+				<div class="form-group col-md-3">
+  					<input class="form-control" type="text" id="cambiofecha" placeholder="La fecha es:" readonly>
+  				</div>
+  				<div class="form-group col-md-3 encabezado">
+  					<input class="form-control" type="text" id="cambiomes" placeholder="La fecha es:" readonly>
+  				</div>
+  				<div class="form-group col-md-3 encabezado">
+  					<input class="form-control" type="text" id="metrico" placeholder="Métrico: BSC CDS" readonly>
+				</div>
+			</div>
+		</form>
+
+		<form class="container container2" id="Formulario">
+		      <div class="form-row">
+		        <div class="form-group col-md-4">
+		          <label for="inputEmail4">Activos</label>
+		          <input type="number" class="form-control" id="a1" placeholder="Insert some value">
+		        </div>
+		        <div class="form-group col-md-4">
+		          <label for="inputPassword4">Activos del mes anterior</label>
+		          <input type="number" class="form-control" id="a2" placeholder="Insert some value">
+		        </div>
+		        <div class="form-group col-md-4">
+		          <label for="inputEmail4">Capturados</label>
+		          <input type="number" class="form-control" id="a3" placeholder="Insert some value">
+		        </div>
+		      </div>
+		       <div class="form-row">
+		        <div class="form-group col-md-6">
+		          <label for="inputPassword4">Cotización lista</label>
+		          <input type="number" class="form-control" id="a4" placeholder="Insert some value">
+
+		        </div>
+		        <div class="form-group col-md-6">
+		          <label for="inputPassword4">Cotización lista anteriores</label>
+		          <input type="number" class="form-control" id="a5" placeholder="Insert some value">
+		        </div>
+		      </div>
+		       <div class="form-row">
+		        <div class="form-group col-md-6">
+		          <label for="inputEmail4">Ticket cerrados</label>
+		          <input type="number" class="form-control" id="a6" placeholder="Insert some value">
+		        </div>
+		        <div class="form-group col-md-6">
+		          <label for="inputPassword4">Ticket cerrados anteriores</label>
+		          <input type="number" class="form-control" id="a7" placeholder="Insert some value">
+		        </div>
+		      </div>
+		      <div class="form-row">
+		      	<input type="button" id="botonGuardar" class="btn btn-primary btn-lg btn-block" value="Guardar Datos">
+			      <input type="button" id="botonReportes" class="btn btn-primary btn-lg btn-block" value="Generar Reporte">
+	
+		  	  </div>
+    </form>
+    <div id="Datos"> </div>
+   
+    	<div id="tablaReportes">
+    		<div class="container table-responsive">
+			   	<table class="table  table-dark table-hover table-bordered" id="tablaReportes2">
+					  <thead>
+					    <tr>
+					      <th scope="col">Desempeño</th>
+					      <th scope="col"># de Servicios</th>
+					      <th scope="col">Porcentaje</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					   
+					  </tbody>
+				</table>	
+				<input type="button" id="botonPdf" class="btn btn-primary btn-lg" value="Imprimir"">
+	   		</div>
+	   		<div id="grafica"></div>
+	   		
+    	</div>
+
+    
+    </div>
+
+
+    <script type="text/javascript">
+
+		var tablaDatos= $("#tablaReportes2");
+
+		 $("#botonGuardar").click(function()
+		{
+					var v1 = $("#a1").val();
+			    	var v2 = $("#a2").val();
+			    	var v3 = $("#a3").val();
+			    	var v4 = $("#a4").val();
+			    	var v5 = $("#a5").val();
+			    	var v6 = $("#a6").val();
+			    	var v7 = $("#a7").val();
+
+		   			localStorage.setItem('campo1', v1);
+		   			localStorage.setItem('campo2', v2);
+		   			localStorage.setItem('campo3', v3);
+		   			localStorage.setItem('campo4', v4);
+		   			localStorage.setItem('campo5', v5);
+		   			localStorage.setItem('campo6', v6);
+		   			localStorage.setItem('campo7', v7);
+
+		   			$("#a1").val("");
+			    	$("#a2").val("");
+			    	$("#a3").val("");
+			    	$("#a4").val("");
+			    	$("#a5").val("");
+			    	$("#a6").val("");
+			    	$("#a7").val("");
+
+		   			$("#botonGuardar").hide();
+		   });
+
+		$("#botonPdf").click(function (){
+			window.print();
+		})
+
+		
+		
+		$("#botonReportes").click(function()
+		{
+			if ($("#botonGuardar").css("display") == "none") 
+				{
+					var xValue = ['Activos', 'Activos del mes anterior', 'Capturados','Cotización lista','Cotización lista anteriores','Ticket cerrados','Ticket cerrados anteriores','Totales'];
+					var sum=0;
+					var y = [localStorage.getItem('campo1'),localStorage.getItem('campo2'),localStorage.getItem('campo3'),localStorage.getItem('campo4'),localStorage.getItem('campo5'),localStorage.getItem('campo6'),localStorage.getItem('campo7')];
+					sum=(new Function("return " +y.join('+')))()
+					
+
+					var trace1 = {
+					  x: xValue,
+					  y: y,
+					  type: 'bar',
+					  text: y,
+					  textposition: 'auto',
+					  hoverinfo: 'none',
+					  marker: {
+					    color: 'rgb(158,202,225)',
+					    opacity: 0.6,
+					    line: {
+					      color: 'rbg(8,48,107)',
+					      width: 1.5
+					    }
+					  }
+					};
+
+					var data = [trace1];
+
+					var layout = {
+						
+					  title: 'CDS: Mesa de Servicios'
+					};
+					
+					
+					Plotly.newPlot('grafica', data, layout); 
+
+					window.onresize = function() {
+					    Plotly.Plots.resize(grafica);
+					};
+	
+					var d = new Date();
+					var n = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear();
+
+					var month = new Array();
+						month[0] = "Enero";
+						month[1] = "Febrero";
+						month[2] = "Marzo";
+						month[3] = "Abril";
+						month[4] = "Mayo";
+						month[5] = "Junio";
+						month[6] = "Julio";
+						month[7] = "Agosto";
+						month[8] = "Septiembre";
+						month[9] = "Octubre";
+						month[10] = "Noviembre";
+						month[11] = "Diciembre";
+					var m = month[d.getMonth()];
+					var año = d.getFullYear();
+
+					$("#cambiofecha").attr("placeholder", "Fecha: "+n+"").blur();
+					$("#cambiomes").attr("placeholder", "Mes de "+m+" del "+año+"").blur();
+
+					$("#tablaReportes").fadeIn();
+					$("#botonPdf").fadeIn();
+					$("#fecha").fadeIn();
+					$("#Formulario").hide();
+				
+
+		   			var total = 0;
+					for (var i = 0; i < y.length; i++) {
+					    total += y[i] << 0;
+					}
+					var y1 = [localStorage.getItem('campo1'),localStorage.getItem('campo2'),localStorage.getItem('campo3'),localStorage.getItem('campo4'),localStorage.getItem('campo5'),localStorage.getItem('campo6'),localStorage.getItem('campo7'),sum];
+
+					var porcentajeTotal = 0;
+
+		   			 for(i=0;i<y1.length;i++)
+		   			 {
+		   			  var porciento = ['', '', '','','','',''];	
+		   			  porciento[i] = ((y1[i]*100))/total;	
+
+				      tablaDatos.append("<tr><td>"+xValue[i]+"</td><td>"+y1[i]+"</td><td>"+Intl.NumberFormat().format(porciento[i])+"%</td></tr>");
+				      porcentajeTotal += porciento[i] << 0;
+
+				   } 
+				}
+				else
+				{
+					alert("Es necesario guardar los datos primero");
+					$("#tablaReportes").fadeOut();
+				}
+
+		});
+
+			
+
+    </script>
+  </body>
+</html>

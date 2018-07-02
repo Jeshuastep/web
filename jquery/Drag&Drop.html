@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JQuery</title>
+			<script src="jquery-3.3.1.min.js"></script>
+			<script src="jqueryui/jquery-ui.js"></script>
+			<link rel="stylesheet" type="text/css" href="jqueryui/jquery-ui.css">
+			<style type="text/css">
+				#draggable	 
+				  { 
+				  	width: 75px; 
+				  	height: 50px; 
+				  	background-color: red;
+				  }
+		  		#droppable 
+		  		 { 
+				  	width: 200px; 
+				  	height: 100px; 
+				  	background-color: honeydew;
+				  }
+				
+			</style>
+	</head>
+	<body>
+		<div id="draggable" class="ui-widget-content">
+  			<p>Drag me to my target</p>
+		</div>
+ 
+		<div id="droppable" class="ui-widget-header">
+ 			 <p>Drop here</p>
+		</div>
+		 <script type="text/javascript">
+			 
+			    $( "#draggable" ).draggable();
+			    $( "#droppable" ).droppable({
+			      drop: function( event, ui ) {
+			       $( this ).css("backgroundColor","black");
+			            alert("Lo soltaste");
+			      }
+			    });
+			 
+		 </script>
+
+	</body>
+</html>

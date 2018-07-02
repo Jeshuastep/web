@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Javascript</title>
+	</head>
+	<body>
+		<p id="texto">Hello world!</p>
+		<button id="miBoton">Cambiar Texto</button>
+		<p id="segundo">Javascript es ...</p>
+		<button id="segundoBoton">Cambiar Texto</button>
+		<p id="parrafoVacio"></p>
+		<button id="crearParrafo">Generar Parrafo</button>
+		<p id="parrafoConEstilo"> Texto con estilo</p>
+		<button id="modificarEstilo">Modifica el estilo</button>
+
+		<script type="text/javascript">
+
+				document.getElementById("miBoton").onclick = function(){
+					document.getElementById("texto").innerHTML ="Que pedo mijares";
+				} 
+				document.getElementById("segundoBoton").onclick = function(){
+					document.getElementById("segundo").innerHTML = document.getElementById("segundo").innerHTML +" Magnífico";
+				} 
+				document.getElementById("crearParrafo").onclick = function(){
+					document.getElementById("parrafoVacio").innerHTML = " <h1>Parrafo Generado</h1>";
+				} 
+				document.getElementById("modificarEstilo").onclick = function(){
+
+					document.getElementById("parrafoConEstilo").style.color = "red";
+					document.getElementById("parrafoConEstilo").style.fontSize = "30px";
+					document.getElementById("parrafoConEstilo").style.fontWeight = "900";
+					document.getElementById("parrafoConEstilo").style.display = "true";
+				} 
+		</script>
+	</body>
+</html>

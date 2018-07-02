@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JQuery</title>
+			<script src="jquery-3.3.1.min.js"></script>
+			<script src="jqueryui/jquery-ui.js"></script>
+			<link rel="stylesheet" type="text/css" href="jqueryui/jquery-ui.css">
+			<style type="text/css">
+				body
+				{
+					font-family: sans-serif;
+					margin: 0;
+					padding: 0;
+				}
+
+				textarea
+				{
+					resize: none;
+					border-top: none;
+					border-color: grey;
+				}
+				iframe
+				{
+					
+				}
+				#barra
+				{
+					width: 100%;
+					background-color: #eeeeee;
+					padding: 5px;
+					height: 30px;
+
+				}
+				#contenedorBotones
+				{
+					margin:0 auto;
+					width: 250px;
+				}
+				#logo 
+				{
+					float: left;
+					font-weight: bold;
+					font-size: 120%;
+					padding: 3px 5px;
+
+				}
+				#output
+				{
+					border: 1px solid grey;
+					border-top-right-radius: 4px;
+					border-bottom-right-radius: 4px;
+				}
+				#html
+				{
+					border-top-left-radius: 4px;
+					border-bottom-left-radius: 4px;
+				}
+				.boton
+				{
+					float: left;
+					border: 1px solid grey;
+					padding: 4px;
+					border-right: none;
+				}
+				.botonMarcado
+				{
+					background-color: #E5E5E5;
+				}
+				.botonActivo
+				{
+					background-color: #EBF4FF;
+				}
+				.panel
+				{
+					float: left;
+					width: 49%;
+					border-left: none;
+				}
+				.oculto
+				{
+					display: none;
+				}
+
+			</style>
+	</head>
+	<body>
+		<div id="barra">
+			<div id="logo">CodePlayer 18'</div>
+			<div id="contenedorBotones">
+				<div class="boton botonActivo" id="html">HTML</div>
+				<div class="boton" id="css">CSS</div>
+				<div class="boton" id="javascript">JS</div>
+				<div class="boton botonActivo" id="output">OUTPUT</div>
+			</div>
+		</div>
+		<div id="contenedorBody">
+				<textarea id="htmlPanel" class="panel"> <p>Hola a todos!</p></textarea>
+				<textarea id="cssPanel" class="panel oculto">p{color: green;}</textarea>
+				<textarea id="javascriptPanel" class="panel oculto">alert("Hola a todos");</textarea>
+				<iframe id="outputPanel" class="panel"></iframe>
+			</div>
+		 <script type="text/javascript">
+		 	/// FORMA ELEGANTE
+		 		function actualizarSalida(){
+		 			$("iframe").contents().find("html").html("<html><head><style type='text/css'>"+$("#cssPanel").val()+"</style></head></body>"+$("#htmlPanel").val());
+		 			document.getElementById("outputPanel").contentWindow.eval($("#javascriptPanel").val());
+		 		}
+			 	$(".boton").hover(function()
+			 	{
+			 		$(this).addClass("botonMarcado");
+			 	}, function(){
+			 		$(this).removeClass("botonMarcado");
+			 	});
+
+			 	$(".boton").click(function()
+			 	{
+			 		$(this).toggleClass("botonActivo");
+					$(this).removeClass("botonMarcado");
+
+					// TOGGLE CLASS QUITO O ACTIVO EL OCULTO
+					var panelid = $(this).attr("id")+"Panel";
+					$("#"+panelid).toggleClass("oculto");
+
+					var numeroDePanelesActivos = 4-$(".oculto").length;
+					// NUMERO D ELEMENTOS QUE TIENEN LA CLASE OCULTO PUESTA
+					$(".panel").width(($(window).width()/numeroDePanelesActivos)-8);
+			 	});
+
+			 	$(".panel").height($(window).height() - $("#barra").height());
+			 	$(".panel").height($(window).width()/2);
+
+			 	actualizarSalida();
+
+			 	$("textarea").on('change keyup paste', function()
+			    {
+			    	actualizarSalida();	
+			    });
+			   
+			   
+
+		 </script>
+
+	</body>
+</html>

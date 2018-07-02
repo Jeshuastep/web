@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JQuery</title>
+		<script src="jquery-3.3.1.min.js"></script>
+		<style type="text/css">
+			#circulo
+			{
+				width: 150px;
+				height: 150px;
+				background-color: green;
+				border-radius: 50%;
+				margin:10px;
+			}
+			.cuadrado
+			{
+				width: 150px;
+				height: 150px;
+				background-color: red;
+				margin:10px;
+			}
+			.cuadrado
+			{
+				width: 150px;
+				height: 150px;
+				background-color: red;
+				margin:10px;
+			}
+			#texto1
+			{
+			}
+			
+		</style>
+	</head>
+	<body>
+	<div id="circulo"></div>
+	<div class="cuadrado"></div>
+	<div class="cuadrado"></div>
+	<p id="texto1">Lorem ipsum Impertvity Dominus perdibom et di botom serpenten</p>
+	<button id="boton1">Mostrar Texto</button>
+
+
+	<script type="text/javascript">
+
+		/*function getRandomColor() 
+		{
+		  var letters = '0123456789ABCDEF';
+		  var color = '#';
+		  for (var i = 0; i < 6; i++) {
+		    color += letters[Math.floor(Math.random() * 16)];
+		  }
+		  return color;
+		}
+
+		$("#circulo").click(function()
+		{	
+			var colorAleatorio = getRandomColor();
+			$("#circulo").css("background-color",colorAleatorio);
+			$("#circulo").hide();
+			//$("#circulo").css("width","300px");
+			//$("#circulo").css("height","300px");
+			//alert($("#circulo").css("background-color"));
+		})*/
+
+		$("#boton1").click(function()
+		{
+				if ($("#texto1").css("display") == "none") 
+				{
+					$("#texto1").fadeIn();
+				}
+				else
+				{
+					$("#texto1").fadeOut();
+				}
+		})
+
+		$("div").click(function()
+		{
+			/*$(this).css("display","none");
+				if ($(this).attr("id") == "circulo") 
+				{
+					alert("Hiciste click sobre un círculo")	
+				} 
+				else 
+				{
+					alert("Hiciste click sobre un cuadrado")	
+				}*/
+				$(this).fadeOut();
+		})
+	</script>
+	</body>
+</html>

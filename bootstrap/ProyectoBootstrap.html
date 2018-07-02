@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <style type="text/css">
+
+    	body
+    	{
+    		position: relative;
+    		
+    	}
+		section {
+			margin-top: 60px;
+		    position: relative;
+		    background-color: transparent !important;
+		    text-align: center;
+		}
+		section .img 
+		{
+		    position: absolute;
+		    left:0; top:0;
+		    background-size: cover;
+		    width: 100%;
+		    opacity: 0.45;
+		    background-image: url("granja.jpg");
+		    z-index: -1;
+		  	height: 100%;
+		}
+		section .container 
+		{
+		    background-color: transparent;
+		  	height: 100vh;
+		}
+
+   		.bold
+   		{
+   			font-weight: bold;
+   		}
+   		.textoJumbo
+   		{
+   			color: black;
+   		}
+   		#Email
+   		{
+   			width: 300px;
+   		}
+   		#capturaEmail
+   		{
+   			 display: flex;
+			  justify-content: center;
+			  align-items: center;
+   		}
+   		#acerca
+   		{
+   		}
+   		#resumenapp
+   		{
+   			margin-top: 50px;
+   			margin-bottom: 50px;
+   				
+			  justify-content: center;
+			  align-items: center;
+   		}
+   		#footer
+   		{
+   			 justify-content: center;
+			  align-items: center;
+			  text-align: center;
+			  background-color: orange;
+			  padding-top: 50px;
+
+   		}
+
+    </style>
+    <title>Mi APP</title>
+
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+			  <a class="navbar-brand" href="#">THE ECOFARM</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarText">
+			    <ul class="navbar-nav mr-auto">
+			      <li class="nav-item">
+			        <a class="nav-link" href="#jumbo">Inicio <span class="sr-only">(current)</span></a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#acerca">Acerca de</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#">Precio</a>
+			      </li>
+				<li class="nav-item">
+			        <a class="nav-link" href="#footer">Descargar</a>
+			      </li>
+			    </ul>
+			    <span class="navbar-text">
+			       <form class="form-inline pull-xs-right">
+					    <input class="form-control" type="email" placeholder="Email">
+					    <input class="form-control" type="password" placeholder="Contraseña">
+					    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+				  </form>
+			    </span>
+			  </div>
+		</nav>
+    
+  </head>
+  <body data-spy="scroll" data-target="#navbar" data-offset="150">
+		
+
+		<section class="jumbotron" id="jumbo">
+
+			<div class="img"></div>
+			<div class="sinOpacidad">
+				  <h1 class="display-3 textoJumbo bold">¡Aumenta tus ganancias!</h1>
+				  <p class="lead textoJumbo">Esta es la razón por la que deberías administrar tus negocios con nostros.</p>
+				  <hr class="my-y-2">
+				  <p class="textoJumbo">Deseas conocer más? Suscribete a nuestro newsletter.</p>
+					<form class="form-inline " id="capturaEmail">
+							<div class="form-group">
+						      <label class="sr-only" for="Email">Dirección de email</label>
+						      <div class="input-group">
+						        <div class="input-group-prepend">
+						          <span class="input-group-text" id="inputGroupPrepend">@</span>
+						        </div>
+						        <input type="text" class="form-control" id="Email" placeholder="Ingresa tu email">
+						      </div>
+						    </div>
+						<button type="submit" class="btn btn-primary"> Suscríbete</button>
+					 </form>
+			</div>
+		</section>
+
+		<div class="container" id="acerca">
+			<div class="row" id="resumenapp">
+				<h1 id="acercade">Gestiona tu empresa de manerá rapida y sencilla</h1>
+				<p class="lead">¿Por que esta app es impresionante?</p>
+			</div>
+		</div>
+		<div class="container">
+			<div class="card-group">
+			  <div class="card">
+			    <img class="card-img-top" src="vaca1.JPG" alt="Card image cap">
+			    <div class="card-body">
+			      <h5 class="card-title">Card title</h5>
+			      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+			    </div>
+			    <div class="card-footer">
+			      <small class="text-muted">Last updated 3 mins ago</small>
+			    </div>
+			  </div>
+			  <div class="card">
+			    <img class="card-img-top" src="vaca2.JPG" alt="Card image cap">
+			    <div class="card-body">
+			      <h5 class="card-title">Card title</h5>
+			      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+			    </div>
+			    <div class="card-footer">
+			      <small class="text-muted">Last updated 3 mins ago</small>
+			    </div>
+			  </div>
+			  <div class="card">
+			    <img class="card-img-top" src="vaca3.JPG" alt="Card image cap">
+			    <div class="card-body">
+			      <h5 class="card-title">Card title</h5>
+			      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+			    </div>
+			    <div class="card-footer">
+			      <small class="text-muted">Last updated 3 mins ago</small>
+			    </div>
+			  </div>
+			</div>
+		</div>
+		<hr>
+		<div id="footer">
+			<div class="row" id="footer">
+				<h2>
+					Administra hoy y vencerás!
+				</h2>
+				<p class="lead">
+					Con The ECOFarm lleva la administración de tu granja a otro nivel, consigue tus metas mensuales de manera eficaz, se parte de ECOFARM.
+				</p>
+				<p><a href=""></a><img src="appstore.png" width="250" height="84"><a href=""><img src="playstore.png" width="300" height="125"></a></p>
+			</div>
+		</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+    
+    </script>
+  </body>
+</html>

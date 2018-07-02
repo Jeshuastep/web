@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JQuery</title>
+			<script src="jquery-3.3.1.min.js"></script>
+			<script src="jqueryui/jquery-ui.js"></script>
+			<link rel="stylesheet" type="text/css" href="jqueryui/jquery-ui.css">
+			<style type="text/css">
+
+				#resizable 
+				  { 
+				  	width: 200px; 
+				  	height: 100px; 
+				  	background-color: honeydew;
+				  }
+		  			#resizable h3 
+		  			{ 
+		  				text-align: center; 
+		  				margin: 0;
+		  			 }
+		  			#tambien
+		  			{
+		  				background-color: green;
+		  				width: 200px;
+		  				height: 100px;
+		  			}
+			</style>
+	</head>
+	<body>
+		<div id="resizable" class="ui-widget-content">
+  		<h3 class="ui-widget-header">Resizable</h3>
+		</div>
+		<div id="tambien"></div>
+
+		 <script>
+
+    		$( "#resizable" ).resizable(
+    		{
+		      grid: 50, alsoResize: "#tambien", resize: function(){
+		      	if ($("#resizable").width()>400)
+		      	{
+		      		alert("Ya es lo suficientemente grande.");
+		      	}
+		      }
+		    });
+		    $( "#tambien" ).resizable();
+ 		  
+		  
+		 </script>
+
+	</body>
+</html>
